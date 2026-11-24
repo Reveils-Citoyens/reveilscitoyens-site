@@ -1,0 +1,455 @@
+/* Couleurs et typographie reprises du thème de NosDéputés.fr (app/theme.tsx). */
+:root {
+  --noir: #171b1e;
+  --gris-800: #343a40;
+  --gris-700: #495057;
+  --gris-600: #868e96;
+  --gris-300: #dee2e6;
+  --gris-200: #e9ecef;
+  --gris-50: #f8f9fa;
+  --blanc: #fff;
+  --rouge: #ef4444;
+  --rayon: 12px;
+  --largeur: 1140px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--noir);
+  background: var(--blanc);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  margin: 0;
+}
+
+h2 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+a {
+  color: inherit;
+}
+
+.conteneur {
+  width: 100%;
+  max-width: var(--largeur);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.centre {
+  text-align: center;
+}
+
+/* ── En-tête ─────────────────────────────────────────────────────────── */
+.entete {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--gris-200);
+}
+
+.entete__contenu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 64px;
+}
+
+.marque {
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.menu {
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu a {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--gris-700);
+}
+
+.menu a:hover,
+.menu a:focus-visible {
+  color: var(--noir);
+}
+
+/* ── Présentation ────────────────────────────────────────────────────── */
+.presentation {
+  padding: 80px 0 64px;
+  text-align: center;
+}
+
+.surtitre {
+  margin: 0 0 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gris-600);
+}
+
+.presentation h1 {
+  font-size: clamp(2.4rem, 6vw, 3.75rem);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.chapeau {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  font-weight: 300;
+  color: var(--gris-700);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.bouton {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.bouton--plein {
+  background: var(--noir);
+  color: var(--blanc);
+  border: 1px solid var(--noir);
+}
+
+.bouton--plein:hover {
+  background: var(--gris-800);
+}
+
+.bouton--contour {
+  border: 1px solid var(--gris-300);
+  color: var(--noir);
+}
+
+.bouton--contour:hover {
+  border-color: var(--noir);
+}
+
+.bouton--clair {
+  background: var(--blanc);
+  color: var(--noir);
+}
+
+.bouton--clair:hover {
+  background: var(--gris-200);
+}
+
+/* ── Sections ────────────────────────────────────────────────────────── */
+.section {
+  margin-bottom: 64px;
+}
+
+.encart {
+  margin-bottom: 48px;
+  padding: 32px;
+  background: var(--gris-50);
+  border-radius: 8px;
+}
+
+.encart p {
+  margin: 16px 0 0;
+}
+
+.titre-icone {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.titre-icone svg {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  fill: currentColor;
+}
+
+.titre-icone--centre {
+  justify-content: center;
+}
+
+.discret {
+  color: var(--gris-700);
+}
+
+/* Valeurs */
+.grille-valeurs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.carte {
+  padding: 24px;
+  background: var(--gris-50);
+  border: 1px solid var(--gris-200);
+  border-radius: var(--rayon);
+  text-align: center;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.carte:hover {
+  transform: translateY(-4px);
+  border-color: var(--noir);
+}
+
+.carte p {
+  margin: 8px 0 0;
+  text-align: start;
+  font-size: 0.9rem;
+  color: var(--gris-700);
+}
+
+.pastille {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  background: var(--noir);
+}
+
+.pastille svg {
+  width: 30px;
+  height: 30px;
+  fill: var(--blanc);
+}
+
+.separateur {
+  margin: 0 0 48px;
+  border: 0;
+  border-top: 1px solid var(--gris-200);
+}
+
+/* Ambition */
+.ambition {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.obstacles {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: obstacle;
+}
+
+.obstacles li {
+  margin-top: 16px;
+  counter-increment: obstacle;
+}
+
+.obstacles h3 {
+  font-size: 1rem;
+}
+
+.obstacles h3::before {
+  content: counter(obstacle) ". ";
+}
+
+.obstacles p {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+}
+
+.citation {
+  margin: 0;
+  padding: 32px;
+  border-radius: 24px;
+  background: var(--gris-200);
+  color: var(--gris-700);
+  font-size: 1.25rem;
+  font-style: italic;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Équipe */
+.equipe {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  margin: 32px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.equipe li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--gris-200);
+  font-size: 1.25rem;
+}
+
+/* Contribuer */
+.appel {
+  margin-bottom: 64px;
+  padding: 48px 24px;
+  border-radius: var(--rayon);
+  background: linear-gradient(45deg, var(--noir) 30%, var(--gris-800) 90%);
+  color: var(--blanc);
+  text-align: center;
+}
+
+.appel__coeur {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 16px;
+  fill: var(--rouge);
+}
+
+.appel p {
+  max-width: 600px;
+  margin: 12px auto 32px;
+  opacity: 0.9;
+}
+
+/* ── Pied de page ────────────────────────────────────────────────────── */
+.pied {
+  border-top: 1px solid var(--gris-200);
+  background: var(--gris-50);
+  color: var(--gris-700);
+  font-size: 0.875rem;
+}
+
+.pied__contenu {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.pied p {
+  margin: 0 0 8px;
+}
+
+.pied a {
+  font-weight: 500;
+}
+
+.pied__copyright {
+  color: var(--gris-600);
+}
+
+/* ── Petits écrans ───────────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .menu {
+    gap: 16px;
+  }
+
+  .grille-valeurs,
+  .ambition {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .entete__contenu {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .menu {
+    flex-wrap: wrap;
+    gap: 6px 16px;
+  }
+
+  .presentation {
+    padding: 48px 0 40px;
+  }
+
+  .encart {
+    padding: 24px 20px;
+  }
+
+  html {
+    scroll-padding-top: 120px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .carte,
+  .carte:hover {
+    transition: none;
+    transform: none;
+  }
+}
